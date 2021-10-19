@@ -1,0 +1,18 @@
+/***********************************************************
+* This file is part of the Bulletcode CSS Framework.
+* Copyright (C) 2021 Bulletcode. All rights reserved.
+***********************************************************/
+
+/* add horizontal/vertical spacing between child elements */
+
+@mixin space-x( $dist ) {
+  > * + * {
+    margin-left: $dist;
+  }
+}
+
+@mixin space-y( $dist ) {
+  > * + * {
+    margin-top: $dist;
+  }
+}

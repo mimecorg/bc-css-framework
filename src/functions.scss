@@ -1,0 +1,52 @@
+/***********************************************************
+* This file is part of the Bulletcode CSS Framework.
+* Copyright (C) 2021 Bulletcode. All rights reserved.
+***********************************************************/
+
+@use "sass:math";
+
+@function px-to-rem( $width ) {
+  @return 1rem * math.div( $width, $font-size-base );
+}
+
+@function relative-font-size( $size ) {
+  @return 100% * math.div( $size, 16px );
+}
+
+@function breakpoint( $name ) {
+  @if map-has-key( $breakpoints, $name ) {
+    @return map-get( $breakpoints, $name );
+  } @else {
+    @error "Unknown breakpoint `#{$name}`";
+  }
+}
+
+@function breakpoint-width( $width ) {
+  @return 1em * math.div( $width, 16px ) - 0.01em;
+}
+
+@function color( $hue, $tone ) {
+  @if map-has-key( $colors, $hue ) {
+    $palette: map-get( $colors, $hue );
+
+    @if map-has-key( $palette, $tone ) {
+      @return map-get( $palette, $tone );
+    } @else {
+      @error "Unknown tone `#{$tone}` in hue `#{$hue}`";
+    }
+  } @else {
+    @error "Unknown hue `#{$hue}`";
+  }
+}
+
+@function brightness( $color ) {
+  @return math.div( ( 0.299 * red( $color ) + 0.587 * green( $color ) + 0.144 * blue( $color ) ), 255 );
+}
+
+@function contrast-color( $background, $color1, $color2 ) {
+  $background-brightness: brightness( $background );
+  $color1-brightness: brightness( $color1 );
+  $color2-brightness: brightness( $color2 );
+
+  @return if( abs( $background-brightness - $color1-brightness ) > abs( $background-brightness - $color2-brightness ), $color1, $color2 );
+}

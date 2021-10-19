@@ -1,0 +1,91 @@
+/***********************************************************
+* This file is part of the Bulletcode CSS Framework.
+* Copyright (C) 2021 Bulletcode. All rights reserved.
+***********************************************************/
+
+/*
+ * NOTES:
+ *  - 'em' units used in media queries refer to browser-default font size, not the actual root font size
+ *  - all media queries should take into account font size multipliers used for accessibility
+ *  - 'max-width' is used instead of 'min-width' because it's generally easier to add mobile syles than to remove them; also
+ *    the font size multipliers wouldn't work otherwise
+*/
+
+/* enable rules only for screen sizes lower than the given breakpoint */
+
+@mixin media-breakpoint-max( $name ) {
+  $max-width: breakpoint( $name );
+
+  @media ( max-width: breakpoint-width( $max-width ) ) {
+    @content;
+  }
+
+  /* adjust breakpoint size when a font size multiplier is used to ensure correct layout even with large fonts */
+
+  @each $key, $multiplier in $font-sizes {
+    @media ( max-width: breakpoint-width( $multiplier * $max-width ) ) {
+      .font-size-#{ $key } #{ if( &, "&", "" ) } {
+        @content;
+      }
+    }
+  }
+}
+
+/* responsive, horizontally centered and padded container; the container has full width until the specified breakpoint */
+
+@mixin container( $min-breakpoint : null, $max-breakpoint: null, $padding: 0 ) {
+  $keys: map-keys( $breakpoints );
+
+  $min-width: null;
+  $max-width: null;
+
+  /* width of the first responsive breakpoint */
+  @if $min-breakpoint != null {
+    $min-width: breakpoint( $min-breakpoint );
+  } @else {
+    $min-width: map-get( $breakpoints, nth( $keys, 1 ) );
+  }
+
+  /* width of the largest breakpoint */
+  @if $max-breakpoint != null {
+    $max-width: breakpoint( $max-breakpoint );
+  } @else {
+    $max-width: map-get( $breakpoints, nth( $keys, length( $keys ) ) );
+  }
+
+  width: 100%;
+  max-width: px-to-rem( $max-width );
+
+  margin-left: auto;
+  margin-right: auto;
+
+  @if $padding != null {
+    padding-left: $padding;
+    padding-right: $padding;
+  }
+
+  /* generate media queries in reverse order, from largest to smallest breakpoint */
+  @for $i from length( $keys ) through 1 {
+    $name: nth( $keys, $i );
+    $width: map-get( $breakpoints, $name );
+
+    @if $width > $min-width {
+      /* "snap" the width of the container to match the size of the smaller breakpoint */
+      $previous-width: map-get( $breakpoints, nth( $keys, $i - 1 ) );
+
+      @if $previous-width < $max-width {
+        @media ( max-width: breakpoint-width( $width ) ) {
+          max-width: px-to-rem( $previous-width );
+        }
+
+        @each $key, $multiplier in $font-sizes {
+          @media ( max-width: breakpoint-width( $multiplier * $width ) ) {
+            .font-size-#{ $key } & {
+              max-width: px-to-rem( $previous-width );
+            }
+          }
+        }
+      }
+    }
+  }
+}

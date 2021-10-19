@@ -1,0 +1,38 @@
+{
+  "name": "bc-css-framework",
+  "version": "1.0.0",
+  "description": "Bulletcode CSS Framework",
+  "main": "dist/framework.min.css",
+  "files": [
+    "dist",
+    "src",
+    "build.js"
+  ],
+  "scripts": {
+    "build": "node build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mimecorg/bc-css-framework.git"
+  },
+  "keywords": [
+    "bulletcode",
+    "css",
+    "framework"
+  ],
+  "author": "Bulletcode",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mimecorg/bc-css-framework/issues"
+  },
+  "homepage": "https://github.com/mimecorg/bc-css-framework",
+  "dependencies": {
+    "modern-normalize": "^1.1.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.3.7",
+    "esbuild": "^0.13.8",
+    "postcss": "^8.3.9",
+    "sass": "^1.43.2"
+  }
+}

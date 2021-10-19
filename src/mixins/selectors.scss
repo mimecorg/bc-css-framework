@@ -1,0 +1,28 @@
+/***********************************************************
+* This file is part of the Bulletcode CSS Framework.
+* Copyright (C) 2021 Bulletcode. All rights reserved.
+***********************************************************/
+
+/* selector for the icons inside the element */
+
+@mixin icon {
+  i[class*=fa-] {
+    @content;
+  }
+}
+
+/* selector for rules applied during a Vue transition */
+
+@mixin transition-active {
+  &.v-enter-active, &.v-leave-active {
+    @content;
+  }
+}
+
+/* selector for rules that the element transitions from/to */
+
+@mixin transition-from {
+  &.v-enter-from, &.v-leave-to {
+    @content;
+  }
+}

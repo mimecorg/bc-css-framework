@@ -1,0 +1,32 @@
+/***********************************************************
+* This file is part of the Bulletcode CSS Framework.
+* Copyright (C) 2021 Bulletcode. All rights reserved.
+***********************************************************/
+
+/* toggle the visibility of the element's tooltip when it's hovered/focused */
+
+@mixin has-tooltip {
+  &:hover, &:focus {
+    --tooltip-opacity: 1;
+  }
+
+  &:focus:not(:hover):not(:focus-visible) {
+    --tooltip-opacity: 0;
+  }
+
+  &:focus-visible {
+    --tooltip-opacity: 1;
+  }
+}
+
+/* base styles for a tooltip; it should be placed inside the element that it describes */
+
+@mixin tooltip {
+  position: absolute;
+  z-index: 10;
+
+  transition: opacity 150ms ease-in-out;
+  opacity: var( --tooltip-opacity, 0 );
+
+  pointer-events: none;
+}

@@ -1,0 +1,26 @@
+/***********************************************************
+* This file is part of the Bulletcode CSS Framework.
+* Copyright (C) 2021 Bulletcode. All rights reserved.
+***********************************************************/
+
+/* make element only visible to screen readers */
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect( 0, 0, 0, 0 );
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* make element visible to screen readers and when focused (e.g. skiplinks) */
+
+@mixin visually-hidden-focusable {
+  &:not(:focus) {
+    @include visually-hidden;
+  }
+}

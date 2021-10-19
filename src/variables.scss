@@ -1,0 +1,21 @@
+/***********************************************************
+* This file is part of the Bulletcode CSS Framework.
+* Copyright (C) 2021 Bulletcode. All rights reserved.
+***********************************************************/
+
+/* body colors */
+
+$text-color: color( gray, 800 ) !default;
+$background-color: $white !default;
+
+/* colors used by prose mixins */
+
+$text-color-muted: color( gray, 700 ) !default;
+
+$link-color: color( blue, 800 ) !default;
+$link-color-active: color( blue, 900 ) !default;
+
+$border-color: color( gray, 500 ) !default;
+
+$code-color: color( gray, 800 ) !default;
+$code-background-color: color( gray, 200 ) !default;

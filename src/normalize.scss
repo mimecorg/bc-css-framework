@@ -1,0 +1,146 @@
+/***********************************************************
+* This file is part of the Bulletcode CSS Framework.
+* Copyright (C) 2021 Bulletcode. All rights reserved.
+***********************************************************/
+
+@import "modern-normalize";
+
+/* additional style resets based on Tailwind CSS preflight.css and SUIT CSS base.css */
+
+html {
+  font-family: $font-family-sans-serif;
+  font-size: relative-font-size( $font-size-base );
+  line-height: $line-height-base;
+}
+
+body {
+  color: $text-color;
+  background-color: $background-color;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+button {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+hr,
+img,
+iframe {
+  border: none;
+}
+
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button,
+[role=button] {
+  cursor: pointer;
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+td, th {
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  padding: 0;
+  line-height: inherit;
+  color: inherit;
+}
+
+pre,
+code,
+kbd,
+samp {
+  font-family: $font-family-monospace;
+}
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* fix box-shadow on input and textarea elements on iOS */
+
+[type=email],
+[type=number],
+[type=password],
+[type=search],
+[type=text],
+[type=url],
+textarea {
+  appearance: none;
+}
