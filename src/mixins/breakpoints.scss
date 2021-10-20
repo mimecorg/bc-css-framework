@@ -33,7 +33,7 @@
 
 /* responsive, horizontally centered and padded container; the container has full width until the specified breakpoint */
 
-@mixin container( $min-breakpoint : null, $max-breakpoint: null, $padding: 0 ) {
+@mixin container( $min-breakpoint: null, $max-breakpoint: null, $padding: 0 ) {
   $keys: map-keys( $breakpoints );
 
   $min-width: null;

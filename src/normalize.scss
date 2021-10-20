@@ -8,7 +8,7 @@
 /* additional style resets based on Tailwind CSS preflight.css and SUIT CSS base.css */
 
 html {
-  font-family: $font-family-sans-serif;
+  font-family: $font-family;
   font-size: relative-font-size( $font-size-base );
   line-height: $line-height-base;
 }
