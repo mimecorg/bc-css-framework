@@ -69,13 +69,15 @@ The `text-size( $name )` mixin specifies the font size and line height of an ele
 
 By default, there are five **breakpoints** for creating responsive layouts: sm, md, lg, xl and 2xl. You can apply certain CSS rules to all sizes up to a specific breakpoint by using the `media-breakpoint-max( $name )` mixin. Although the breakpoint sizes are defined in pixels, the mixin ensures that they are adjusted according to the font size settings in the browsers and the font size multiplier.
 
-The `container( $min-breakpoint, $max-breakpoint, $padding )` mixin can be used to create a responsive, horizontally centered and padded **container**. It has full width until the specified minimum breakpoint, then it adjusts to the current breakpoint until it reaches the maximum size. For example:
+The `container( $min-breakpoint, $max-breakpoint, $padding, $sidebar-width, $min-sidebar-breakpoint )` mixin can be used to create a responsive, horizontally centered and padded **container**. It has full width until the specified minimum breakpoint, then it adjusts to the current breakpoint until it reaches the maximum size. All parameters are optional. For example:
 
 ```scss
 .container {
   @include container( lg, $padding: $sp-4 );
 }
 ```
+
+The container can also take into account a sidebar with the given width (it should be specified in `rem` units using the `sp()` function); optionally, the sidebar can be only visible from the specified minimum breakpoint.
 
 ### Accessibility
 
@@ -92,6 +94,8 @@ A customized **focus ring** can be used to highlight the focused element when us
 ```
 
 Note that `:focus-visible` is not widely supported yet and may need to be polyfilled.
+
+The `focus-ring-inset` mixin specifies that the focus ring should be visible within the element instead of around it.
 
 The `visually-hidden` mixin hides an element from the screen, making it only visible to **screen readers**. The `visually-hidden-focusable` mixin makes the element visible when it's focused, which is useful for creating accessible skip links. These mixins can be used for creating utility components:
 
@@ -112,6 +116,8 @@ The `has-tooltip` and `tooltip` mixins can be used to create **accessible toolti
 ```
 
 In this case, the `has-tooltip` mixin should be added to the button's CSS rules, and the span element should use the `tooltip` mixin. It's position can be adjusted if necessary.
+
+The `hide-tooltip` mixin specifies that the tooltip shouldn't be displayed in a certain state of the element.
 
 ### Utilities
 
