@@ -30,9 +30,9 @@
     "modern-normalize": "^1.1.0"
   },
   "devDependencies": {
-    "autoprefixer": "^10.3.7",
-    "esbuild": "^0.13.8",
-    "postcss": "^8.3.9",
-    "sass": "^1.43.2"
+    "autoprefixer": "^10.4.7",
+    "esbuild": "^0.13.15",
+    "postcss": "^8.4.14",
+    "sass": "^1.53.0"
   }
 }
