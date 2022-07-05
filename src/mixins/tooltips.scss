@@ -30,3 +30,9 @@
 
   pointer-events: none;
 }
+
+/* hide the tooltip for the current element */
+
+@mixin hide-tooltip {
+  --tooltip-opacity: 0;
+}
