@@ -33,7 +33,7 @@
 
 /* responsive, horizontally centered and padded container; the container has full width until the specified breakpoint */
 
-@mixin container( $min-breakpoint: null, $max-breakpoint: null, $padding: 0 ) {
+@mixin container( $min-breakpoint: null, $max-breakpoint: null, $padding: null, $sidebar-width: null, $min-sidebar-breakpoint: null ) {
   $keys: map-keys( $breakpoints );
 
   $min-width: null;
@@ -74,12 +74,19 @@
       $previous-width: map-get( $breakpoints, nth( $keys, $i - 1 ) );
 
       @if $previous-width < $max-width {
-        @media ( max-width: breakpoint-width( $width ) ) {
+        $total-width: $width;
+
+        /* add the width of the sidebar, if applicable */
+        @if $sidebar-width != null and ( $min-sidebar-breakpoint == null or $width >= breakpoint( $min-sidebar-breakpoint ) ) {
+          $total-width: $width + rem-to-px( $sidebar-width );
+        }
+
+        @media ( max-width: ( breakpoint-width( $total-width ) ) ) {
           max-width: px-to-rem( $previous-width );
         }
 
         @each $key, $multiplier in $font-sizes {
-          @media ( max-width: breakpoint-width( $multiplier * $width ) ) {
+          @media ( max-width: breakpoint-width( $multiplier * $total-width ) ) {
             .font-size-#{ $key } & {
               max-width: px-to-rem( $previous-width );
             }

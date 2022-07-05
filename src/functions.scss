@@ -9,6 +9,10 @@
   @return 1rem * math.div( $width, $font-size-base );
 }
 
+@function rem-to-px( $width ) {
+  @return $font-size-base * math.div( $width, 1rem );
+}
+
 @function relative-font-size( $size ) {
   @return 100% * math.div( $size, 16px );
 }
