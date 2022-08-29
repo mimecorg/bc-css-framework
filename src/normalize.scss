@@ -135,12 +135,19 @@ video {
 
 /* fix box-shadow on input and textarea elements on iOS */
 
+[type=date],
+[type=datetime],
+[type=datetime-local],
 [type=email],
+[type=month],
 [type=number],
 [type=password],
 [type=search],
+[type=tel],
 [type=text],
+[type=time],
 [type=url],
+[type=week],
 textarea {
   appearance: none;
 }
