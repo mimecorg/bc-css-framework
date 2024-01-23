@@ -8,8 +8,8 @@
 @mixin text-size( $name ) {
   @if map-has-key( $text-sizes, $name ) {
     $sizes: map-get( $text-sizes, $name );
-    font-size: nth( $sizes, 1 );
-    line-height: nth( $sizes, 2 );
+    font-size: nth( $sizes, 1 ) * $text-size-multiplier;
+    line-height: nth( $sizes, 2 ) * $text-size-multiplier;
   } @else {
     @error "Unknown text size `#{$name}`";
   }

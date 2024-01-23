@@ -29,6 +29,8 @@ $text-sizes: (
   4xl: 2.25rem 2.75rem,
 ) !default;
 
+$text-size-multiplier: 1 !default;
+
 /* list of font size multipliers used for accessibility; keep in sync with views/layouts/main.php and helpers/accessibility.js */
 
 $font-sizes: (
@@ -127,8 +129,10 @@ $shadows: (
 
 /* predefined margin and padding sizes; one unit of spacing is 0.25rem */
 
+$sp-multiplier: 0.25rem !default;
+
 @function sp( $units ) {
-  @return $units * 0.25rem;
+  @return $units * $sp-multiplier;
 }
 
 $sp-1: sp( 1 );
