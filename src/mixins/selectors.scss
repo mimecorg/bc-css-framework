@@ -6,7 +6,7 @@
 /* selector for the icons inside the element */
 
 @mixin icon {
-  i[class*=fa-] {
+  [class^="#{$icon-prefix}-"], [class*=" #{$icon-prefix}-"] {
     @content;
   }
 }

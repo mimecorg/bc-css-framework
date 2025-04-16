@@ -145,7 +145,7 @@ The `styled-links` mixin restores the style of a link, because they are removed 
 }
 ```
 
-The `icon` mixin can be used as a selector for the [Font Awesome](https://fontawesome.com/) icons inside the element.
+The `icon` mixin can be used as a selector for the [Font Awesome](https://fontawesome.com/) icons inside the element. You can override the default `fa` prefix for icons by changing `$icon-prefix`.
 
 The `transition-from` mixin can be used to specify the state that the element transitions from when becoming visible, and transitions to when becoming invisible. It uses the `.v-enter-from`, and `.v-leave-to` classes which are applied by the [<transition> component in Vue.js](https://v3.vuejs.org/guide/transitions-enterleave.html). For example, to use opacity to fade the element in and out:
 
