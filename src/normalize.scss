@@ -8,7 +8,6 @@
 /* additional style resets based on Tailwind CSS preflight.css and SUIT CSS base.css */
 
 html {
-  font-family: $font-family;
   font-size: relative-font-size( $font-size-base );
   line-height: $line-height-base;
 }
@@ -16,9 +15,6 @@ html {
 body {
   color: $text-color;
   background-color: $background-color;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
 }
 
 blockquote,
@@ -107,13 +103,6 @@ textarea {
   padding: 0;
   line-height: inherit;
   color: inherit;
-}
-
-pre,
-code,
-kbd,
-samp {
-  font-family: $font-family-monospace;
 }
 
 img,

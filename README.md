@@ -34,7 +34,7 @@ The package contains a pre-built CSS file which contains the style resets, but i
 // include your styles here
 ```
 
-The `config.scss` file contains Sass variables which specify the default fonts, predefined font sizes, responsive layout breakpoints and the color palette. The `variables.scss` file contains Sass variables which make it possible to customize default styles. You can use helper functions to define those variables, for example `color( gray, 500 )`.
+The `config.scss` file contains Sass variables which specify predefined font sizes, responsive layout breakpoints and the color palette. The `variables.scss` file contains Sass variables which make it possible to customize default styles. You can use helper functions to define those variables, for example `color( gray, 500 )`.
 
 
 ## Features
@@ -60,8 +60,6 @@ It is also possible to override the font size on the whole page by adding a util
   }
 }
 ```
-
-The `$font-family` and `$font-family-monospace` variables specify the default font for all elements on the page, and the monospace font used by the pre, code, kbd and samp elements.
 
 The `text-size( $name )` mixin specifies the font size and line height of an element, using one of the predefined sizes: xs, sm, base, lg, xl, 2xl, 3xl and 4xl.
 
