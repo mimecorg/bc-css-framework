@@ -1,12 +1,11 @@
 {
   "name": "bc-css-framework",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "Bulletcode CSS Framework",
   "main": "dist/framework.min.css",
   "files": [
     "dist",
-    "src",
-    "build.js"
+    "src"
   ],
   "scripts": {
     "build": "node build.js"
